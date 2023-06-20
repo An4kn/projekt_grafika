@@ -5,7 +5,7 @@ from collections import deque
 
 
 class SpriteObject:
-    def __init__(self, game, path='obrazkispriteBomba/exp1.png',
+    def __init__(self, game, path='obrazkispriteBomba/0.png',
                  pos=(10.5, 3.5), scale=0.7, shift=0.27):
         self.game = game
         self.player = game.player
@@ -54,7 +54,7 @@ class SpriteObject:
 
 
 class AnimatedSprite(SpriteObject):
-    def __init__(self, game, path='obrazkispriteBomba/exp1.png',
+    def __init__(self, game, path='obrazkispriteBomba/0.png',
                  pos=(11.5, 3.5), scale=0.8, shift=0.27, animation_time=120):
         super().__init__(game, path, pos, scale, shift)
         self.animation_time = animation_time
@@ -82,8 +82,8 @@ class AnimatedSprite(SpriteObject):
 
     def get_images(self, path):
         images = deque()
-        for file_name in os.listdir(path):
-            if os.path.isfile(os.path.join(path, file_name)):
-                img = pg.image.load(path + '/' + file_name).convert_alpha()
-                images.append(img)
+        for i in range(25):  # Assuming you have 25 images in total
+            file_name = f"{i}.png"
+            img = pg.image.load(os.path.join(path, file_name)).convert_alpha()
+            images.append(img)
         return images

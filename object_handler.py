@@ -9,7 +9,7 @@ class ObjectHandler:
 
         add_sprite = self.add_sprite
 
-        add_sprite(SpriteObject(game))
+        #add_sprite(SpriteObject(game))
         add_sprite(AnimatedSprite(game))
 
     def update(self):
