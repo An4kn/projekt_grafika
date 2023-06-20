@@ -54,8 +54,4 @@ class Game:
 
 if __name__ == '__main__':
     game = Game()
-<<<<<<< Updated upstream
     game.run()
-=======
-    game.run()
->>>>>>> Stashed changes
