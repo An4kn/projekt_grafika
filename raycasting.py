@@ -29,6 +29,7 @@ class RayCasting:
         ox, oy = self.game.player.pos
         x_map, y_map = self.game.player.map_pos
 
+        texture_vert, texture_hor =1,1
         ray_angle = self.game.player.angle - HALF_FOV + 0.0001
         for ray in range(NUM_RAYS):
             sin_a = math.sin(ray_angle)
@@ -63,7 +64,8 @@ class RayCasting:
             for i in range(MAX_DEPTH):
                 tile_vert = int(x_vert), int(y_vert)
                 if tile_vert in self.game.map.world_map:
-                    texture_vert = self.game.map[tile_vert]
+                    texture_vert = self.game.map.world_map[tile_vert]
+
                     break
                 x_vert += dx
                 y_vert += dy
