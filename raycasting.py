@@ -4,11 +4,11 @@ from settings import *
 
 
 class RayCasting:
-    def __init__(self, game):
-        self.game = game
+    def __init__(self, render):
+        self.render = render
         self.ray_casting_result = []
         self.objects_to_render = []
-        self.textures = self.game.object_renderer.wall_textures
+        self.textures = self.render.object_renderer.wall_textures
 
     def get_object_to_render(self):
         self.objects_to_render = []
@@ -36,11 +36,11 @@ class RayCasting:
     def ray_cast(self):
         self.ray_casting_result = []
 
-        ox, oy = self.game.player.pos
-        x_map, y_map = self.game.player.map_pos
+        ox, oy = self.render.player.pos
+        x_map, y_map = self.render.player.map_pos
 
         texture_vert, texture_hor =1,1
-        ray_angle = self.game.player.angle - HALF_FOV + 0.0001
+        ray_angle = self.render.player.angle - HALF_FOV + 0.0001
         for ray in range(NUM_RAYS):
             sin_a = math.sin(ray_angle)
             cos_a = math.cos(ray_angle)
@@ -56,8 +56,8 @@ class RayCasting:
 
             for i in range(MAX_DEPTH):
                 tile_hor = int(x_hor), int(y_hor)
-                if tile_hor in self.game.map.world_map:
-                    texture_hor = self.game.map.world_map[tile_hor]
+                if tile_hor in self.render.map.world_map:
+                    texture_hor = self.render.map.world_map[tile_hor]
                     break
                 x_hor += dx
                 y_hor += dy
@@ -73,8 +73,8 @@ class RayCasting:
 
             for i in range(MAX_DEPTH):
                 tile_vert = int(x_vert), int(y_vert)
-                if tile_vert in self.game.map.world_map:
-                    texture_vert = self.game.map.world_map[tile_vert]
+                if tile_vert in self.render.map.world_map:
+                    texture_vert = self.render.map.world_map[tile_vert]
 
                     break
                 x_vert += dx

@@ -8,16 +8,16 @@ from object_renderer import *
 from sprite_object import *
 from object_handler import *
 
-class Game:
+class Render:
     def __init__(self):
         pg.init()
         pg.mouse.set_visible(False)
         self.screen = pg.display.set_mode(RES)
         self.clock = pg.time.Clock()
         self.delta_time = 1
-        self.new_game()
+        self.new_render()
 
-    def new_game(self):
+    def new_render(self):
         self.map = Map(self)
         self.player = Player(self)
         self.object_renderer = ObjectRenderer(self)
@@ -58,6 +58,6 @@ class Game:
 
 
 if __name__ == '__main__':
-    game = Game()
-    game.run()
+    render = Render()
+    render.run()
     
