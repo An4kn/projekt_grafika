@@ -3,7 +3,7 @@ import pygame as pg
 import math
 
 
-class Player:
+class Camera:
     def __init__(self, render):
         self.render = render
         self.x, self.y = PLAYER_POS

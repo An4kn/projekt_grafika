@@ -2,7 +2,7 @@ import pygame as pg
 import sys
 from settings import *
 from map import *
-from player import *
+from camera import *
 from raycasting import *
 from object_renderer import *
 from sprite_object import *
@@ -19,7 +19,7 @@ class Render:
 
     def new_render(self):
         self.map = Map(self)
-        self.player = Player(self)
+        self.player = Camera(self)
         self.object_renderer = ObjectRenderer(self)
         self.raycasting = RayCasting(self)
         self.object_handler = ObjectHandler(self)
