@@ -30,17 +30,15 @@ class Render:
         self.player.update()
         self.raycasting.update()
         self.object_handler.update()
-        #self.static_sprite.update()
-        #self.animated_sprite.update()
+ 
         pg.display.flip()
         self.delta_time = self.clock.tick(FPS)
         pg.display.set_caption(f'{self.clock.get_fps() :.1f}')
 
     def draw(self):
-        #self.screen.fill('black')
+
         self.object_renderer.draw()
-        # self.map.draw()
-        # self.player.draw()
+
 
     def check_events(self):
         
